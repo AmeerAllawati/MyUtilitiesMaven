@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Stack;
 
 public class MyUtilities {
 
@@ -30,6 +31,24 @@ public class MyUtilities {
         
         
         return result;
+    }
+    
+    public boolean isCorrectExtendedScope(String inputString) {
+        Stack<Character> charactersStack = new Stack<Character>();
+        
+        for(int i = 0; i < inputString.length(); ++i) {
+            if (inputString.charAt(i) == '{' || inputString.charAt(i) == '[' || inputString.charAt(i) == '(') {
+                charactersStack.add(inputString.charAt(i));
+            } else if (inputString.charAt(i) == '}' || inputString.charAt(i) == ']' || inputString.charAt(i) == ')') {
+                if((inputString.charAt(i) == '}' && charactersStack.peek() == '{') ||
+                        (inputString.charAt(i) == ']' && charactersStack.peek() == '[') ||
+                        (inputString.charAt(i) == ')' && charactersStack.peek() == '(')) {
+                    charactersStack.pop();
+                }
+            }
+        }
+        
+        return (charactersStack.empty());
     }
     
     

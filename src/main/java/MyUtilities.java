@@ -2,13 +2,7 @@ import java.util.HashMap;
 
 public class MyUtilities {
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        
-        
-        
 
-    }
     
     public HashMap<String, Integer> exponentCalculator(HashMap<String, Integer> baseExponent) {
         

@@ -16,11 +16,19 @@ public class MyUtilities {
         
         Integer powerResult = baseExponent.get("base");
         
-        for(int i = 0; i < baseExponent.get("exponent")-1; ++i) {
+        for(int i = 0; i < Math.abs(baseExponent.get("exponent"))-1; ++i) {
             powerResult = powerResult * baseExponent.get("base"); 
         }
         
-        result.put("result", powerResult);
+        if(baseExponent.get("exponent") < 0) {
+            result.put("result", powerResult);
+        } else if (baseExponent.get("exponent") == 0) {
+            result.put("result", 1);
+        } else {
+            result.put("result", powerResult);  
+        }
+        
+        
         return result;
     }
     
